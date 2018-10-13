@@ -123,7 +123,7 @@ check "j-reduce":
   j-reduce(add, c) is 22
 end
 
-fun increasing(num-1 :: Number, num-2 :: Number) -> Number:
+fun increasing(num-1 :: Number, num-2 :: Number) -> Boolean:
   doc: "For use in j-sort"
   if num-1 <= num-2:
     true
@@ -132,7 +132,7 @@ fun increasing(num-1 :: Number, num-2 :: Number) -> Number:
   end
 end
 
-fun decreasing(num-1 :: Number, num-2 :: Number) -> Number:
+fun decreasing(num-1 :: Number, num-2 :: Number) -> Boolean:
   doc: "For use in j-sort"
   if num-1 >= num-2:
     true
@@ -146,7 +146,7 @@ check "j-sort":
   j-sort(increasing, a) is a
   j-sort(decreasing, a) is join-list(one(6), one(5), 2)
   j-sort(increasing, b) is b
-  j-sort(decreasing, a) is join-list(one(7), one(4), 2)
+  j-sort(decreasing, b) is join-list(one(7), one(4), 2)
   j-sort(increasing, d) is list-to-join-list([list: 4, 5, 6, 7])
   j-sort(decreasing, d) is list-to-join-list([list: 7, 6, 5, 4])
   j-sort(increasing, empty-join-list) is empty-join-list #Tests the empty case
